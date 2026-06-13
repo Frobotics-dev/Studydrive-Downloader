@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Studydrive Downloader",
+  "version": "1.0.0",
+  "description": "Studydrive-Dokumente als Bilder herunterladen, Duplikate entfernen und sauber umbenennen",
+  
+  "permissions": [
+    "downloads",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  
+  "host_permissions": [
+    "https://www.studydrive.net/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://www.studydrive.net/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "options.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
